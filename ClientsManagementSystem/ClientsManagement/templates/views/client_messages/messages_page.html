@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Client Contact</h1>
+    <div>&nbsp;</div>
+    {% for message in messages_query %}
+        <a href="{% url 'message_detail' message.message_slug %}">{{ message.title }}</a>
+    {% endfor %}
+  </body>
+</html>
