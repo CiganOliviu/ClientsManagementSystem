@@ -1,0 +1,33 @@
+p {
+    font-size: 20px;
+}
+
+.profile img {
+    width: 100%;
+    border-radius: 3%;
+}
+
+.ActiveWorkingProjects {
+    background: #f2f2f2;
+    padding: 2%;
+}
+
+.FinishedProjects {
+    background: #f2f2f2;
+    padding: 2%;
+}
+
+.PlannedProjects {
+    background: #f2f2f2;
+    padding: 2%;
+}
+
+.ProjectsRequest {
+    background: #f2f2f2;
+    padding: 2%;
+}
+
+.project {
+    background: aqua;
+    padding: 2%;
+}

@@ -1,0 +1,96 @@
+{% extends 'layouts/main_layout.html' %}
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mobile_adjust.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-lg-4">
+            <div class="profile">
+            <h1>Profile</h1>
+            <div>&nbsp;</div>
+            {% for client in client_details_query %}
+                <img src="{{ client.profile_image.url }}" />
+            {% endfor %}
+            <div>&nbsp;</div>
+            <h2>{{ user.last_name }} {{ user.first_name }}</h2>
+            <h3>{{ user.username }}</h3>
+            <div>&nbsp;</div>
+            {% for client in client_details_query %}
+                <p>Size: {{ client.size_of_client }}</p>
+                <p>Client Type {{ client.type_of_client }}</p>
+                <p>{{ client.number_of_finalised_projects }} Finalised Projects</p>
+                <p>{{ client.number_of_proposed_projects }} Proposed Projects</p>
+                <p>{{ client.number_of_projects_in_progress }} Projects in Progress</p>
+            {% endfor %}
+            <div>&nbsp;</div>
+            <p>Last Login {{ user.last_login }}</p>
+            <p>Joined in {{ user.date_joined }}</p>
+            </div>
+        </div>
+        <div class="col-lg-8" align="center">
+
+            <h1>Activity</h1>
+
+            <div>&nbsp;</div>
+
+            <div class="ActiveWorkingProjects">
+                <h1>Active Working Projects</h1>
+                <div>&nbsp;</div>
+                {% for project in active_working_projects_query %}
+                    <div class="project">
+                        <p>{{ project.project_name }}</p>
+                        <p>Percent done {{ project.percent_done }}</p>
+                        <p>{{ project.deadline }}</p>
+                    </div>
+                    <div>&nbsp;</div>
+                {% endfor %}
+            </div>
+
+            <div>&nbsp;</div>
+
+            <div class="PlannedProjects">
+                <h1>Planned Projects</h1>
+                <div>&nbsp;</div>
+                {% for planned_project in planned_projects_query %}
+                    <div class="project">
+                        <p>{{  planned_project.project_name }}</p>
+                        <p>{{ planned_project.deadline_for_production }}</p>
+                    </div>
+                    <div>&nbsp;</div>
+                {% endfor %}
+            </div>
+
+            <div>&nbsp;</div>
+
+            <div class="FinishedProjects">
+                <h1>Finished Projects</h1>
+                <div>&nbsp;</div>
+                {% for finished_project in finished_projects_query %}
+                    <div class="project">
+                        <p>{{ finished_project.project_name }}</p>
+                        <p>{{ finished_project.type }}</p>
+                    </div>
+                    <div>&nbsp;</div>
+                {% endfor %}
+            </div>
+
+            <div>&nbsp;</div>
+
+            <div class="ProjectsRequest">
+                <h1>Projects Requests</h1>
+                <div>&nbsp;</div>
+                {% for requests in projects_request_query %}
+                    <div class="project">
+                        <p>{{ requests.project_name }}</p>
+                        <p> {{ requests.type }} </p>
+                        <p> {{ requests.project_status }}</p>
+                    </div>
+                    <div>&nbsp;</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
