@@ -1,2 +1,2 @@
 # ClientsManagementSystem
-A client management system written in django.
+A clients management system written in django.
