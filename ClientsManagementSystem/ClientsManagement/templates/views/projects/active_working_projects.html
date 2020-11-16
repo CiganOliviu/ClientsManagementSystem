@@ -36,7 +36,9 @@
                 <img src="{{ client.profile_image.url }}" />
             {% endfor %}
             <div>&nbsp;</div>
-            <h2>{{ client.last_name }} {{ client.first_name }}</h2>
+            {% for client in client_details_query %}
+                <h2>{{ client.last_name }} {{ client.first_name }}</h2>
+            {% endfor %}
             <h3>{{ user.username }}</h3>
             <div>&nbsp;</div>
             {% for client in client_details_query %}
